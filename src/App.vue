@@ -1,31 +1,56 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+	// get lat long
+	const getLocationByIP = async () => {
+		try {
+			const responce = await fetch(
+				`https://api.ipbase.com/v2/info?apikey=${
+					import.meta.env.VITE_IPBASE_API_KEY
+				}&language=en`
+			)
+			const data = await responce.json()
+
+			return {
+				ip: data.data.ip,
+				timezone: data.data.timezone.id,
+				code: data.data.timezone.code,
+				city: data.data.location.city.name,
+				country: data.data.location.country.alpha2
+			}
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const location = await getLocationByIP()
+
+	console.log(location)
+
+	// get location date time
+
+	const getLocalTime = async (ip) => {
+		try {
+			const responce = await fetch(`https://worldtimeapi.org/api/ip/${ip}`)
+			const data = await responce.json()
+
+			return {
+				datetime: data.datetime,
+				day_of_week: data.day_of_week,
+				day_of_year: data.day_of_year
+			}
+		} catch (error) {
+			console.log(error)
+		}
+	}
+
+	const localTime = await getLocalTime(location.ip)
+
+	console.log(localTime)
+
+	// run clock
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+	<div></div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
+<style scoped></style>
