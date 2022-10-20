@@ -1,3 +1,11 @@
+type IPData = {
+	ip: string
+	timezone: string
+	code: string
+	city: string
+	country: string
+}
+
 export const getLocationByIP = async () => {
 	try {
 		const responce = await fetch(
@@ -13,7 +21,7 @@ export const getLocationByIP = async () => {
 			code: data.data.timezone.code,
 			city: data.data.location.city.name,
 			country: data.data.location.country.alpha2
-		}
+		} as IPData
 	} catch (error) {
 		console.log(error)
 	}

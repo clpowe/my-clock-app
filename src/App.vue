@@ -1,7 +1,7 @@
 <template>
 	<Clock />
 </template>
-<script setup>
+<script setup lang="ts">
 	import Clock from './components/Clock.vue'
 	import { provide, ref, onMounted } from 'vue'
 

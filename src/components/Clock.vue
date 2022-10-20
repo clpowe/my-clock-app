@@ -1,12 +1,16 @@
 <script setup>
 	import { ref, watch, inject } from 'vue'
 
-	let myhour = ref('')
-	let myminute = ref('')
-	let hourOfDay = ref(1)
-	const quote = ref()
+	import Time from './Time.vue'
+	import Stats from './Stats.vue'
+	import Quote from './Quote.vue'
 
 	const location = inject('location')
+	const quote = ref()
+
+	let hour = ref('')
+	let minute = ref('')
+	let hourOfDay = ref(1)
 
 	const setTime = () => {
 		let date = new Date()
@@ -25,13 +29,12 @@
 				hour12: false
 			})
 		)
-		myhour.value = clock[0].value
-		myminute.value = clock[2].value
+		hour.value = clock[0].value
+		minute.value = clock[2].value
 	}
-
-	const greeting = ref('Good evening')
 	setTime()
 
+	const greeting = ref('Good evening')
 	// get random quote
 
 	const getQuote = async () => {
@@ -73,13 +76,17 @@
 
 <template>
 	<div v-if="location">
+		<Quote />
+		<Time />
+		<Stats />
+
 		<div v-if="quote">
 			{{ quote.en }}
 			{{ quote.author }}
 		</div>
 
 		<div>{{ greeting }}, IT’S CURRENTLY</div>
-		<div>{{ myhour }}:{{ myminute }}{{ location.code }}</div>
+		<div>{{ hour }}:{{ minute }}{{ location.code }}</div>
 		<div>in {{ location.city }},{{ location.country }}</div>
 		<div>
 			<div>
