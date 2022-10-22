@@ -8,7 +8,7 @@ export const getStats = async (ip: string) => {
 	try {
 		const responce = await fetch(`https://worldtimeapi.org/api/ip/${ip}`)
 		const data = await responce.json()
-
+		console.log('stats', 'done')
 		return {
 			day_of_week: data.day_of_week,
 			day_of_year: data.day_of_year,

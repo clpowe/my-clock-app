@@ -20,9 +20,11 @@
 </template>
 
 <script setup>
-	import { inject } from 'vue'
+	import { useLocationStore } from '../store/LocationStore'
 
-	const location = inject('location')
+	const locationStore = useLocationStore()
+
+	const location = locationStore.location
 </script>
 
 <style lang="scss" scoped></style>

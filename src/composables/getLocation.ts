@@ -14,7 +14,7 @@ export const getLocationByIP = async () => {
 			}&language=en`
 		)
 		const data = await responce.json()
-
+		console.log('location', 'done')
 		return {
 			ip: data.data.ip,
 			timezone: data.data.timezone.id,

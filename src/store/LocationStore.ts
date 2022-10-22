@@ -1,20 +1,11 @@
 import { defineStore } from 'pinia'
 import { getData } from '../composables/getData'
-
-type Location = {
-	ip: string
-	timezone: string
-	code: string
-	city: string
-	country: string
-	day_of_week: string
-	day_of_year: string
-	week_number: string
-}
+import { Location } from '../types/Location'
 
 export const useLocationStore = defineStore('LocationStore', {
 	state: () => {
 		return {
+			quote: '',
 			location: {
 				ip: '',
 				timezone: '',
@@ -28,7 +19,7 @@ export const useLocationStore = defineStore('LocationStore', {
 		}
 	},
 	actions: {
-		async getLocation() {
+		async fill(): Promise<Location | void> {
 			try {
 				this.location = await getData()
 			} catch (error) {
