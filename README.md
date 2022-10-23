@@ -61,6 +61,8 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 
 ### What I learned
 
+#### Suspense Component
+
 I was unfamiliar and a little frustraited by the suspence component in vuejs. I really commited reading the docs and figured out how to properly implement it. Async data wont function properly if its not used.
 
 ```html
@@ -72,27 +74,17 @@ I was unfamiliar and a little frustraited by the suspence component in vuejs. I 
 </Suspense>
 ```
 
-To see how you can add code snippets, see below:
+#### Better commits
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
+I really wanted to get more consistent and structured with my git commits. I found this convention. An unexpected side effect is the convention itself encourages more frequent commits
 
-```css
-.proud-of-this-css {
-	color: papayawhip;
-}
-```
+Defining a Commit Message Convention
+type(scope): subject
+body (optional)
+footer (optional)
 
-```js
-const proudOfThisFunc = () => {
-	console.log('🎉')
-}
-```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+This article really helped me out.
+[art of writing a good commit message](https://dev.to/wordssaysalot/art-of-writing-a-good-commit-message-56o7)
 
 ### Continued development
 
