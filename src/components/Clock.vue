@@ -3,8 +3,8 @@
 
 	const store = useStore()
 
+	await store.useGetQuote()
 	await store.fill()
-	const location = store.location
 
 	// const greeting = ref('Good evening')
 	// // get random quote

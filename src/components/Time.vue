@@ -2,6 +2,7 @@
 	<div>{{ greeting }}, IT’S CURRENTLY</div>
 	<div>{{ hour }}:{{ minute }} {{ location.code }}</div>
 	<div>{{ location.city }}, {{ location.country }}</div>
+	<button>More</button>
 </template>
 
 <script setup lang="ts">
@@ -40,15 +41,6 @@
 	watch(hourOfDay, (hourOfDay) => {
 		greeting.value = getGreeting(hourOfDay)
 	})
-
-	// watch(greeting, (geeting, prevGreeting) => {
-	// 	if (prevGreeting === 'Good Night') {
-	// 		getQuote()
-	// 	}
-	// 	if (prevGreeting === 'Good afternoon') {
-	// 		getQuote()
-	// 	}
-	// })
 </script>
 
 <style lang="scss" scoped></style>

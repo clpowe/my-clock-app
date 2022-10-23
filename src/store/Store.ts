@@ -1,10 +1,13 @@
+import { Quote } from './../types/Quote'
 import { defineStore } from 'pinia'
 import { getData } from '../composables/getData'
 import { Location } from '../types/Location'
+import { getQuote } from '../composables/getQuote'
 
 export const useStore = defineStore('store', {
 	state: () => {
 		return {
+			quote: {} as Quote | any,
 			location: {
 				ip: '',
 				timezone: '',
@@ -21,12 +24,16 @@ export const useStore = defineStore('store', {
 		timeOfDay: (state) => {}
 	},
 	actions: {
-		async fill(): Promise<Location | void> {
+		async fill(): Promise<Location | any> {
 			try {
 				this.location = await getData()
 			} catch (error) {
 				console.error(error)
 			}
+		},
+
+		async useGetQuote(): Promise<Quote | any> {
+			this.quote = await getQuote()
 		}
 	}
 })
