@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { Quote } from '../types/Quote'
 
-export const getQuote = async (): Promise<Quote | null> => {
+const getQuote = async (): Promise<Quote | null> => {
 	let quote = ref(null)
 	try {
 		const responce = await fetch(
@@ -15,3 +15,5 @@ export const getQuote = async (): Promise<Quote | null> => {
 	}
 	return quote.value
 }
+
+export default getQuote

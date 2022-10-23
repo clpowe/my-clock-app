@@ -48,10 +48,10 @@
 </script>
 
 <template>
+	<Quote />
 	<Time />
 
-	<Quote />
-	<!-- <Stats /> -->
+	<Stats />
 	<!--
 		<div v-if="quote">
 			{{ quote.en }}

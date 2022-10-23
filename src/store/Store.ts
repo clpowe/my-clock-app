@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
 import { getData } from '../composables/getData'
 import { Location } from '../types/Location'
-import { inRange } from 'lodash'
 
 export const useStore = defineStore('store', {
 	state: () => {
