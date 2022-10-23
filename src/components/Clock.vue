@@ -1,65 +1,32 @@
 <script setup lang="ts">
-	import { ref, watch, inject } from 'vue'
-	import { useLocationStore } from '../store/LocationStore'
-	import Time from './Time.vue'
+	import { useStore } from '../store/Store'
 
-	const locationStore = useLocationStore()
+	const store = useStore()
 
-	import Stats from './Stats.vue'
-	import Quote from './Quote.vue'
-
-	await locationStore.fill()
-	const location = locationStore.location
-
-	const quote = ref()
-
-	// let hour = ref('')
-	// let minute = ref('')
-	// let hourOfDay = ref(1)
-
-	// const setTime = () => {
-	// 	let date = new Date()
-
-	// 	const options = {
-	// 		hour: 'numeric',
-	// 		minute: 'numeric'
-	// 	}
-
-	// 	const clock = new Intl.DateTimeFormat('en-US', options).formatToParts(date)
-	// 	setTimeout(setTime, 1000)
-
-	// 	hourOfDay.value = parseInt(
-	// 		date.toLocaleString('en-US', {
-	// 			hour: '2-digit',
-	// 			hour12: false
-	// 		})
-	// 	)
-	// 	hour.value = clock[0].value
-	// 	minute.value = clock[2].value
-	// }
-	// setTime()
+	await store.fill()
+	const location = store.location
 
 	// const greeting = ref('Good evening')
 	// // get random quote
 
-	const getQuote = async () => {
-		try {
-			const responce = await fetch(
-				'https://programming-quotes-api.herokuapp.com/Quotes/random'
-			)
+	// const getQuote = async () => {
+	// 	try {
+	// 		const responce = await fetch(
+	// 			'https://programming-quotes-api.herokuapp.com/Quotes/random'
+	// 		)
 
-			if (responce.ok) {
-				quote.value = await responce.json()
-				console.log(quote.value)
-			}
-		} catch (error) {
-			console.error(error)
-		}
-	}
+	// 		if (responce.ok) {
+	// 			quote.value = await responce.json()
+	// 			console.log(quote.value)
+	// 		}
+	// 	} catch (error) {
+	// 		console.error(error)
+	// 	}
+	// }
 
-	getQuote()
+	// getQuote()
 
-	console.log(quote.value)
+	// console.log(quote.value)
 	// watch(hourOfDay, () => {
 	// 	if (hourOfDay.value >= 5 && hourOfDay.value <= 12) {
 	// 		greeting.value = 'Good morning'
@@ -83,9 +50,9 @@
 <template>
 	<Time />
 
-	<!-- <Quote />
-		<Stats />
-
+	<Quote />
+	<!-- <Stats /> -->
+	<!--
 		<div v-if="quote">
 			{{ quote.en }}
 			{{ quote.author }}

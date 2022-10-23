@@ -1,11 +1,11 @@
 import { defineStore } from 'pinia'
 import { getData } from '../composables/getData'
 import { Location } from '../types/Location'
+import { inRange } from 'lodash'
 
-export const useLocationStore = defineStore('LocationStore', {
+export const useStore = defineStore('store', {
 	state: () => {
 		return {
-			quote: '',
 			location: {
 				ip: '',
 				timezone: '',
@@ -17,6 +17,9 @@ export const useLocationStore = defineStore('LocationStore', {
 				week_number: ''
 			} as Location
 		}
+	},
+	getters: {
+		timeOfDay: (state) => {}
 	},
 	actions: {
 		async fill(): Promise<Location | void> {

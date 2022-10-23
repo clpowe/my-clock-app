@@ -20,11 +20,11 @@
 </template>
 
 <script setup>
-	import { useLocationStore } from '../store/LocationStore'
+	import { useStore } from '../store/Store'
 
-	const locationStore = useLocationStore()
+	const store = useStore()
 
-	const location = locationStore.location
+	const location = store.location
 </script>
 
 <style lang="scss" scoped></style>

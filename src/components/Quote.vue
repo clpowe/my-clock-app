@@ -1,23 +1,9 @@
-<script setup>
-	import { useLocationStore } from './store/LocationStore'
-	const locationStore = useLocationStore()
+<script setup lang="ts">
+	import { getQuote } from '../composables/getQuote'
 
-	const getQuote = async () => {
-		try {
-			const responce = await fetch(
-				'https://programming-quotes-api.herokuapp.com/Quotes/random'
-			)
-
-			if (responce.ok) {
-				quote.value = await responce.json()
-				console.log(quote.value)
-			}
-		} catch (error) {
-			console.error(error)
-		}
-	}
-
-	getQuote()
+	const quote = await getQuote()
 </script>
 
-<template></template>
+<template>
+	{{ quote }}
+</template>
