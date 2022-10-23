@@ -1,82 +1,91 @@
 <script setup lang="ts">
+	import { computed, Ref, ref, watch } from 'vue'
+	import { getGreeting } from '../composables/getGreeting'
 	import { useStore } from '../store/Store'
+	import { inRange } from 'lodash'
 
 	const store = useStore()
 
 	await store.useGetQuote()
 	await store.fill()
 
-	// const greeting = ref('Good evening')
-	// // get random quote
+	const location = store.location
 
-	// const getQuote = async () => {
-	// 	try {
-	// 		const responce = await fetch(
-	// 			'https://programming-quotes-api.herokuapp.com/Quotes/random'
-	// 		)
+	let hour: Ref<string> = ref('')
+	let minute: Ref<string> = ref('')
+	let hourOfDay: Ref<number> = ref(1)
 
-	// 		if (responce.ok) {
-	// 			quote.value = await responce.json()
-	// 			console.log(quote.value)
-	// 		}
-	// 	} catch (error) {
-	// 		console.error(error)
-	// 	}
-	// }
+	const setTime = () => {
+		let date = new Date()
+		const options: Intl.DateTimeFormatOptions = {
+			hour: 'numeric',
+			minute: 'numeric'
+		}
+		const clock = new Intl.DateTimeFormat('en-US', options).formatToParts(date)
+		setTimeout(setTime, 1000)
+		hourOfDay.value = parseInt(
+			date.toLocaleString('en-US', {
+				hour: '2-digit',
+				hour12: false
+			})
+		)
+		hour.value = clock[0].value
+		minute.value = clock[2].value
+	}
+	setTime()
 
-	// getQuote()
+	const greeting: Ref<string> = ref('')
 
-	// console.log(quote.value)
-	// watch(hourOfDay, () => {
-	// 	if (hourOfDay.value >= 5 && hourOfDay.value <= 12) {
-	// 		greeting.value = 'Good morning'
-	// 	} else if (hourOfDay.value > 12 && hourOfDay.value <= 18) {
-	// 		greeting.value = 'Good afternoon'
-	// 	} else {
-	// 		greeting.value = 'Good evening'
-	// 	}
-	// })
+	greeting.value = getGreeting(hourOfDay.value)
 
-	// watch(greeting, (geeting, prevGreeting) => {
-	// 	if (prevGreeting === 'Good Night') {
-	// 		getQuote()
-	// 	}
-	// 	if (prevGreeting === 'Good afternoon') {
-	// 		getQuote()
-	// 	}
-	// })
+	watch(hourOfDay, (hourOfDay) => {
+		greeting.value = getGreeting(hourOfDay)
+	})
+
+	const sunUp = computed((hourOfDay) => {
+		return inRange(hourOfDay, 5, 18)
+	})
 </script>
 
 <template>
 	<Quote />
-	<Time />
-
+	<Time :greeting="greeting" :hour="hour" :minute="minute" />
 	<Stats />
-	<!--
-		<div v-if="quote">
-			{{ quote.en }}
-			{{ quote.author }}
-		</div>
 
-		<div>{{ greeting }}, IT’S CURRENTLY</div>
-		<div>{{ hour }}:{{ minute }}{{ location.code }}</div>
-		<div>in {{ location.city }},{{ location.country }}</div>
-		<div>
-			<div>
-				<p>Current timezone</p>
-				<p>{{ location.timezone }}</p>
-			</div>
-			<div>
-				<p>Day of the year</p>
-				<p>{{ location.day_of_year }}</p>
-			</div>
-			<div>
-				<p>Day of the week</p>
-				<p>{{ location.day_of_week }}</p>
-			</div>
-			<div>
-				<p>Week number</p>
-				<p>{{ location.week_number }}</p>
-			</div>
-		</div> -->
+	<picture v-if="sunUp">
+		<source
+			srcset="
+				https://ik.imagekit.io/cpds/ClockApp/bg-image-daytime_1__uNgHNvvCgC.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492750025
+			"
+			media="(min-width: 768px)"
+		/>
+		<source
+			srcset="
+				https://ik.imagekit.io/cpds/ClockApp/bg-image-daytime_2__cx2t84I9t.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492749991
+			"
+			media="(min-width: 375px)"
+		/>
+		<img
+			src="https://ik.imagekit.io/cpds/ClockApp/bg-image-daytime_uZfG1aY4Q.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492749472"
+			alt=""
+		/>
+	</picture>
+	<picture v-else>
+		<source
+			srcset="
+				https://ik.imagekit.io/cpds/ClockApp/bg-image-nighttime_1__-o2E3GA-h7.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492749917
+			"
+			media="(min-width: 768px)"
+		/>
+		<source
+			srcset="
+				https://ik.imagekit.io/cpds/ClockApp/bg-image-nighttime_2__NRPnIFdSM_.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492750018
+			"
+			media="(min-width: 375px)"
+		/>
+		<img
+			src="https://ik.imagekit.io/cpds/ClockApp/bg-image-nighttime_x05w5GWQz.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492749470"
+			alt=""
+		/>
+	</picture>
 </template>

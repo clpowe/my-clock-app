@@ -4,7 +4,7 @@
 	import { Quote } from '../types/Quote'
 
 	const store = useStore()
-	const quote: Ref<Quote> = ref()
+	const quote: Ref<Quote | any> = ref()
 
 	quote.value = store.quote
 	store.$subscribe(() => {
