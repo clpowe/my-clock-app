@@ -9,8 +9,6 @@
 	await store.useGetQuote()
 	await store.fill()
 
-	const location = store.location
-
 	let hour: Ref<string> = ref('')
 	let minute: Ref<string> = ref('')
 	let hourOfDay: Ref<number> = ref(1)
