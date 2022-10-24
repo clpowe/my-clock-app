@@ -1,0 +1,74 @@
+@import 'open-props/postcss/style';
+
+/* optional imports that use the props */
+@import 'open-props/postcss/normalize';
+
+:root {
+	/* Colors */
+	--black: #00000;
+	--dark-gray: #303030;
+	--white: #ffffff;
+
+	--font-family: 'Inter', sans-serif;
+}
+
+html {
+	font-family: var(--font-family);
+	position: relative;
+}
+
+/* Typography */
+.custom-body {
+	font-size: 12px;
+	line-height: 22px;
+	font-weight: regular;
+}
+
+.text-100 {
+	font-style: normal;
+	font-size: 15px;
+	line-height: 28px;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+
+.text-200 {
+	font-style: normal;
+	font-size: 18px;
+	line-height: 28px;
+}
+
+.text-300 {
+	font-style: normal;
+	font-size: 20px;
+	line-height: 28px;
+	letter-spacing: 4px;
+	text-transform: uppercase;
+}
+
+.text-400 {
+	font-style: normal;
+	font-size: 24px;
+	line-height: 28px;
+	letter-spacing: 4.8px;
+	text-transform: uppercase;
+}
+
+.text-500 {
+	font-size: 56px;
+	line-height: 68px;
+}
+
+.text-600 {
+	font-size: 200px;
+	line-height: 200px;
+	letter-spacing: -5px;
+}
+
+.weight-regular {
+	font-weight: 400;
+}
+
+.weight-bold {
+	font-weight: 700;
+}
