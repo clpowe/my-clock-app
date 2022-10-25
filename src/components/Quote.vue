@@ -17,19 +17,15 @@
 </script>
 
 <template>
-	<div v-if="quote" class="flex items-start gap-4 z-5 text-white pt-8 px-4">
+	<div v-if="quote" class="quote">
 		<div>
-			<p class="custom-body mb-4 md:(text-red)">
-				{{ quote.en }}
-			</p>
-			<p class="custom-body font-bold">
+			<p class="body">"{{ quote.en }}"</p>
+			<p class="body bold author">
 				{{ quote.author }}
 			</p>
 		</div>
-		<button @click="handleClick" class="opacity-50 hover:opacity-100">
+		<button @click="handleClick">
 			<svg
-				width="18"
-				height="18"
 				viewBox="0 0 18 18"
 				fill="none"
 				xmlns="http://www.w3.org/2000/svg"
@@ -45,3 +41,34 @@
 		</button>
 	</div>
 </template>
+
+<style scoped>
+	.quote {
+		display: flex;
+		color: var(--white);
+		width: 100%;
+		flex-direction: row;
+		align-items: start;
+		gap: 1rem;
+	}
+
+	button {
+		background: none;
+		margin-top: 0.25rem;
+	}
+
+	svg {
+		fill: var(--white);
+		opacity: 0.5;
+		height: 1rem;
+		width: 1rem;
+	}
+	svg:hover {
+		fill: var(--white);
+		opacity: 1;
+	}
+
+	.author {
+		margin-top: 0.5rem;
+	}
+</style>

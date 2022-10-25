@@ -1,13 +1,13 @@
 @import 'open-props/postcss/style';
-
-/* optional imports that use the props */
 @import 'open-props/postcss/normalize';
 
 :root {
 	/* Colors */
-	--black: #00000;
+	--black: #000;
 	--dark-gray: #303030;
 	--white: #ffffff;
+
+	--overlay: rgba(0, 0, 0, 0.4);
 
 	--font-family: 'Inter', sans-serif;
 }
@@ -17,8 +17,12 @@ html {
 	position: relative;
 }
 
+.bold {
+	font-weight: 700;
+}
+
 /* Typography */
-.custom-body {
+.body {
 	font-size: 12px;
 	line-height: 22px;
 	font-weight: regular;
@@ -71,4 +75,15 @@ html {
 
 .weight-bold {
 	font-weight: 700;
+}
+
+@media (min-width: 375px) {
+	.body {
+		font-size: 18px;
+		line-height: 28px;
+		font-weight: regular;
+	}
+}
+
+@media (min-width: 768px) {
 }

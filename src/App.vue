@@ -1,12 +1,12 @@
 <template>
-	<div class="h-screen overflow-hidden">
+	<main class="h-screen overflow-hidden">
 		<Suspense>
 			<template #default>
 				<Clock />
 			</template>
 			<template #fallback> Loading... </template>
 		</Suspense>
-		<picture v-if="sunUp">
+		<!-- <picture v-if="sunUp">
 			<source
 				srcset="
 					https://ik.imagekit.io/cpds/ClockApp/bg-image-daytime_1__uNgHNvvCgC.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492750025
@@ -43,8 +43,8 @@
 				alt=""
 				class="absolute top-0 left-0 h-full w-full object-cover"
 			/>
-		</picture>
-	</div>
+		</picture> -->
+	</main>
 </template>
 <script setup lang="ts">
 	import { computed, Ref, ref, watch, provide } from 'vue'
@@ -96,4 +96,11 @@
 	provide('greeting', greeting)
 </script>
 
-<style scoped></style>
+<style scoped>
+	main {
+		height: 100vh;
+		overflow: hidden;
+		background-color: black;
+		display: flex;
+	}
+</style>

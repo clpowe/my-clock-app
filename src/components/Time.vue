@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="time">
 		<div>{{ greeting }}, IT’S CURRENTLY</div>
 		<div>{{ hour }}:{{ minute }} {{ location.code }}</div>
 		<div>{{ location.city }}, {{ location.country }}</div>
@@ -19,4 +19,8 @@
 	const minute = inject('minute')
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+	.time {
+		z-index: 5;
+	}
+</style>
