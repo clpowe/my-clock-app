@@ -6,24 +6,26 @@
 </script>
 
 <template>
-	<div class="sunUp">
+	<main class="sunUp">
 		<Quote />
 		<Time />
 		<Stats />
-	</div>
+	</main>
 </template>
 
 <style scoped>
 	:root {
 	}
 
-	div {
+	main {
 		display: flex;
 		flex-direction: column;
 		max-width: 1440px;
 		overflow: hidden;
 		margin: auto;
+		padding-top: 2rem;
 		padding-inline: 1.5rem;
+		padding-bottom: 2.5rem;
 	}
 
 	.sunUp {
@@ -37,7 +39,7 @@
 		width: 100%;
 	}
 
-	@media (min-width: 375px) {
+	@media (min-width: 376px) {
 		.sunUp {
 			background: linear-gradient(var(--overlay), var(--overlay)),
 				url(https://ik.imagekit.io/cpds/ClockApp/bg-image-daytime_2__cx2t84I9t.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492749991);

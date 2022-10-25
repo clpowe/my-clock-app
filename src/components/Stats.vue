@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="stats">
 		<div>
 			<p>Current timezone</p>
 			<p>{{ location.timezone }}</p>
@@ -25,4 +25,9 @@
 	const location = store.location
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped>
+	.stats {
+		min-height: 334px;
+		width: 100%;
+	}
+</style>

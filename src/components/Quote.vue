@@ -50,11 +50,14 @@
 		flex-direction: row;
 		align-items: start;
 		gap: 1rem;
+		min-height: 334px;
+		justify-content: space-between;
 	}
 
 	button {
 		background: none;
 		margin-top: 0.25rem;
+		flex-shrink: 0;
 	}
 
 	svg {
