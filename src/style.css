@@ -17,6 +17,12 @@ html {
 	position: relative;
 }
 
+body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
 .bold {
 	font-weight: 700;
 }
@@ -46,9 +52,9 @@ html {
 
 .text-300 {
 	font-style: normal;
-	font-size: 20px;
+	font-size: 15px;
 	line-height: 28px;
-	letter-spacing: 4px;
+	letter-spacing: 3px;
 	text-transform: uppercase;
 }
 
@@ -66,17 +72,13 @@ html {
 }
 
 .text-600 {
-	font-size: 200px;
-	line-height: 200px;
-	letter-spacing: -5px;
+	font-size: 100px;
+	line-height: 100px;
+	letter-spacing: -2.5px;
 }
 
 .weight-regular {
 	font-weight: 400;
-}
-
-.weight-bold {
-	font-weight: 700;
 }
 
 @media (min-width: 376px) {

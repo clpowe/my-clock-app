@@ -15,7 +15,7 @@ export const getData = async (): Promise<Location> => {
 	} catch (error) {
 		console.error(error)
 	}
-	console.log('data', 'done')
+
 	return {
 		...location,
 		...time

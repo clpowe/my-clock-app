@@ -90,6 +90,10 @@
 		})
 	}
 
+	const showHide = () => {
+		console.log('Show Hide')
+	}
+
 	provide('sunUp', sunUp)
 	provide('hour', hour)
 	provide('minute', minute)
@@ -98,8 +102,6 @@
 
 <style scoped>
 	main {
-		height: 100vh;
-		overflow: hidden;
 		background-color: black;
 		display: flex;
 	}
