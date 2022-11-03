@@ -25,7 +25,6 @@
 		border-radius: 500px;
 		justify-content: space-between;
 		align-items: center;
-		margin-block: auto;
 	}
 
 	.text {

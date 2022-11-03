@@ -18,9 +18,7 @@ html {
 }
 
 body {
-	height: 100%;
 	width: 100%;
-	overflow: hidden;
 }
 
 .bold {
@@ -87,7 +85,18 @@ body {
 		line-height: 28px;
 		font-weight: regular;
 	}
+
+	.text-600 {
+		font-size: 175px;
+		line-height: 175px;
+		letter-spacing: -2.5px;
+	}
 }
 
 @media (min-width: 768px) {
+	.text-600 {
+		font-size: 200px;
+		line-height: 200px;
+		letter-spacing: -2.5px;
+	}
 }

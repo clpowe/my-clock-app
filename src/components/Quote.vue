@@ -46,11 +46,14 @@
 	.quote {
 		display: flex;
 		color: var(--white);
+		max-width: 1110px;
+		margin-inline: auto;
 		width: 100%;
 		flex-direction: row;
 		align-items: start;
 		gap: 1rem;
-		min-height: 334px;
+		padding-top: 2rem;
+		padding-inline: 1rem;
 		justify-content: space-between;
 	}
 
@@ -73,5 +76,17 @@
 
 	.author {
 		margin-top: 0.5rem;
+	}
+
+	@media (min-width: 376px) {
+		.quote {
+			padding-inline: 4rem;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.quote {
+			justify-content: flex-start;
+		}
 	}
 </style>
