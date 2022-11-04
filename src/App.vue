@@ -4,7 +4,7 @@
 			<template #default>
 				<Clock />
 			</template>
-			<template #fallback> Loading... </template>
+			<template #fallback> <Loader /> </template>
 		</Suspense>
 	</main>
 </template>
