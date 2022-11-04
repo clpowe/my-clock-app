@@ -21,7 +21,8 @@
 	</article>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+	import { computed, inject } from 'vue'
 	import { useStore } from '../store/Store'
 	const store = useStore()
 	const location = store.location
