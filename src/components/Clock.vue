@@ -80,7 +80,7 @@
 		top: -50%;
 	}
 
-	@media (min-width: 376px) {
+	@media (min-width: 425px) {
 		.sunUp {
 			background: linear-gradient(var(--overlay), var(--overlay)),
 				url(https://ik.imagekit.io/cpds/ClockApp/bg-image-daytime_2__cx2t84I9t.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1666492749991);

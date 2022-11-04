@@ -68,12 +68,12 @@
 		margin-bottom: 3rem;
 	}
 
-	@media (min-width: 376px) {
+	@media (min-width: 425px) {
 		.formal {
 			display: block;
 		}
 		.time {
-			padding-inline: 1rem;
+			padding-inline: 5%;
 		}
 	}
 	@media (min-width: 768px) {

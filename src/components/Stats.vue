@@ -86,14 +86,14 @@
 		white-space: nowrap;
 	}
 
-	@media (min-width: 376px) {
+	@media (min-width: 425px) {
 		.stats-container {
-			padding-inline: 4rem;
+			padding-inline: 5%;
 		}
 	}
 	@media (min-width: 768px) {
 		.stats-container {
-			padding-inline: 4rem;
+			padding-inline: 5%;
 		}
 	}
 </style>

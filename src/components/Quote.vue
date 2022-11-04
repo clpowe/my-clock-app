@@ -78,9 +78,9 @@
 		margin-top: 0.5rem;
 	}
 
-	@media (min-width: 376px) {
+	@media (min-width: 425px) {
 		.quote {
-			padding-inline: 4rem;
+			padding-inline: 5%;
 		}
 	}
 
