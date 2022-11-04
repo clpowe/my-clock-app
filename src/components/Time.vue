@@ -43,7 +43,7 @@
 		justify-content: flex-end;
 		padding-inline: 1rem;
 		padding-bottom: 2.5rem;
-		max-width: 1110px;
+		max-width: 1440px;
 		margin-inline: auto;
 	}
 

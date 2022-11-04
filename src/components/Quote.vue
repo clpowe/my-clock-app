@@ -46,7 +46,7 @@
 	.quote {
 		display: flex;
 		color: var(--white);
-		max-width: 1110px;
+		max-width: 1440px;
 		margin-inline: auto;
 		width: 100%;
 		flex-direction: row;

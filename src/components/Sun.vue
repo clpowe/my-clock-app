@@ -23,5 +23,6 @@
 <style scoped>
 	svg {
 		margin-right: 1rem;
+		min-width: 23px;
 	}
 </style>

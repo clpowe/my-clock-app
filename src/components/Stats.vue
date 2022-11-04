@@ -53,7 +53,7 @@
 	.stats-container {
 		margin-block: auto;
 		padding: 1rem;
-		max-width: 1110px;
+		max-width: 1440px;
 		margin-inline: auto;
 		width: 100%;
 		display: flex;
@@ -89,11 +89,40 @@
 	@media (min-width: 425px) {
 		.stats-container {
 			padding-inline: 5%;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			place-content: center;
+			place-content: center;
+		}
+		.stat {
+			flex-direction: column;
+		}
+		.stat p:first-of-type {
+			font-size: 10px;
+			line-height: 28px;
+			flex: 0;
+		}
+		.stat p:nth-of-type(2) {
+			font-size: 40px;
+			line-height: 48px;
+			text-align: left;
+			white-space: break-spaces;
 		}
 	}
 	@media (min-width: 768px) {
 		.stats-container {
 			padding-inline: 5%;
+		}
+		.stat p:first-of-type {
+			font-size: 15px;
+			line-height: 28px;
+			flex: 0;
+		}
+		.stat p:nth-of-type(2) {
+			font-size: 56px;
+			line-height: 68px;
+			text-align: left;
+			white-space: break-spaces;
 		}
 	}
 </style>

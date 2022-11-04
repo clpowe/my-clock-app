@@ -1,6 +1,6 @@
 <template>
 	<button @click="handleclick">
-		<span class="text">MORE</span>
+		<span class="text">{{ isFlipped ? 'LESS' : 'MORE' }}</span>
 		<div class="chevron" :class="{ flip: isFlipped }">
 			<Chevron />
 		</div>
