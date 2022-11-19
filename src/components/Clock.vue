@@ -5,8 +5,11 @@
 	await store.useGetQuote()
 	await store.fill()
 
+	const sunUp = ref('sunUp')
+	const sunDown = ref('sunDown')
+
 	const isShown = ref(false)
-	let isSunUp = inject('isSunUp')
+	let isSunUp: boolean | undefined = inject('isSunUp')
 
 	const showHide = () => {
 		isShown.value = !isShown.value

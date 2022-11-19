@@ -46,14 +46,7 @@
 			greeting.value = getGreeting(hourOfDay)
 		})
 
-		isSunUp = computed((hourOfDay) => {
-			const result = inRange(hourOfDay, 5, 18)
-			return result
-		})
-	}
-
-	const showHide = () => {
-		console.log('Show Hide')
+		isSunUp.value = inRange(hourOfDay.value, 5, 18)
 	}
 
 	provide('isSunUp', isSunUp)
