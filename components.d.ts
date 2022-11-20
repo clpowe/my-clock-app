@@ -7,10 +7,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Button: typeof import('./src/components/Button.vue')['default']
     Chevron: typeof import('./src/components/Chevron.vue')['default']
     Clock: typeof import('./src/components/Clock.vue')['default']
-    copy: typeof import('./src/components/Sun copy.vue')['default']
     Loader: typeof import('./src/components/Loader.vue')['default']
     Moon: typeof import('./src/components/Moon.vue')['default']
     MyButton: typeof import('./src/components/MyButton.vue')['default']
